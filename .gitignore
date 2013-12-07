@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+#WebStorm
+.idea
+
+#Generated Files
+stylesheets/*.css
