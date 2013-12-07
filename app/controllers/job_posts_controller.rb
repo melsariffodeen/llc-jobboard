@@ -19,8 +19,12 @@ class JobPostsController < ApplicationController
     end
   end
 
+  def show
+    @job_post = JobPost.find(params[:id])
+  end
+
   private
   def job_post_params
-    params.require(:job_posts).permit(:title, :description, :due_date)
+    params.require(:job_post).permit(:title, :description, :due_date)
   end
 end
