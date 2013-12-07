@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LlcJobboard</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+    <title>LlcJobboard</title>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
 
-<% if employer_signed_in? %>
-  Employer logged in
-<% end %>
+<div class="container">
+    <header>
+        <div class="row"></div>
+        <div class="row">
+            <ul class="nav nav-pills xs-col-12 pull-right">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">Another Link</a></li>
+            </ul>
+        </div>
+    </header>
 
-<%= yield %>
+    <% if employer_signed_in? %>
+    Employer logged in
+    <% end %>
+
+    <%= yield %>
+
+</div>
 
 </body>
 </html>
