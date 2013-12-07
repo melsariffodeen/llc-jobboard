@@ -1,4 +1,4 @@
-<%= simple_form_for @job_post do |f| %>
+<%= simple_form_for(@job_post, :html => { :class => 'form-horizontal' }) do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :due_date %>
