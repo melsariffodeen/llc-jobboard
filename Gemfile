@@ -1,6 +1,3 @@
-#taggable
-#devise
-#gmapsforrails
 
 
 source 'https://rubygems.org'
