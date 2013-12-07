@@ -1,3 +1,8 @@
+#taggable
+#devise
+#gmapsforrails
+
+
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -33,6 +38,15 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+# https://github.com/mbleigh/acts-as-taggable-on
+gem 'acts-as-taggable-on'
+
+# Flexible authentication solution for Rails with Warden. http://blog.plataformatec.com.br/tag/devise/
+gem 'devise'
+
+# Enables easy Google map + overlays creation in Ruby apps
+gem 'gmaps4rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
