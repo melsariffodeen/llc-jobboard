@@ -1,3 +1,3 @@
 == Ladies Learning Code - Jobs
 
-http://llc-jobs.herokuapp.com/
+http://llc-jobs.herokuapp.com
