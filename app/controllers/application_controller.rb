@@ -4,10 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
-    if admin_signed_in?
-      redirect_to :admin_dashboard
+    case resource
+    when Admin
+      admin_dashboard_path
     else
-      super  
+      root_path
     end
   end
 end
