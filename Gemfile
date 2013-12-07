@@ -45,6 +45,12 @@ gem 'devise'
 # Enables easy Google map + overlays creation in Ruby apps
 gem 'gmaps4rails'
 
+gem 'state_machine'
+
+gem "paperclip", "~> 3.0"
+
+gem 'underscore-rails'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
