@@ -53,6 +53,7 @@ gem 'underscore-rails'
 
 gem 'simple_form'
 gem 'country_select'
+gem 'linkedin'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
