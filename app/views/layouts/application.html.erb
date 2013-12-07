@@ -17,7 +17,7 @@
         <div class="row">
             <ul class="nav nav-pills xs-col-12 pull-right">
                 <li><a href="/">Home</a></li>
-                <li><a href="#">Another Link</a></li>
+                <li><a href="/job_posts/new">Add Job Post</a></li>
                 <% if user_signed_in? %>
                     <li>Welcome <%= current_user.email %> <%= link_to('Logout?', destroy_user_session_path, :method => :delete) %></li>
                 <% else %>
