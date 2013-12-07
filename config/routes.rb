@@ -52,9 +52,9 @@ LlcJobboard::Application.routes.draw do
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
 
-  get 'admin_dashboard' => 'admin_dashboard#index'
-  get 'admin_dashboard/new' => 'admin_dashboard#new_admin'
-  post 'admin_dashboard/create' => 'admin_dashboard#create_admin'
+  get 'admin/dashboard' => 'admin/dashboard#index'
+  get 'admin/new' => 'admin/dashboard#new_admin'
+  post 'admin/create' => 'admin/dashboard#create_admin'
 
   # Example resource route within a namespace:
   #   namespace :admin do
