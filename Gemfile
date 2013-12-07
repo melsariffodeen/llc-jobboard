@@ -51,6 +51,9 @@ gem "paperclip", "~> 3.0"
 
 gem 'underscore-rails'
 
+gem 'simple_form'
+gem 'country_select'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

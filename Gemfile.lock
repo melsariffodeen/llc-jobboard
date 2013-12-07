@@ -43,6 +43,7 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     commonjs (0.2.7)
+    country_select (1.2.0)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -114,6 +115,9 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
+    simple_form (3.0.1)
+      actionpack (>= 4.0.0, < 4.1)
+      activemodel (>= 4.0.0, < 4.1)
     sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -151,6 +155,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   coffee-rails (~> 4.0.0)
+  country_select
   devise
   gmaps4rails
   jbuilder (~> 1.2)
@@ -162,6 +167,7 @@ DEPENDENCIES
   rails_12factor
   sass-rails (~> 4.0.0)
   sdoc
+  simple_form
   sqlite3
   state_machine
   therubyracer
