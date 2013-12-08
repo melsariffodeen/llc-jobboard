@@ -26,8 +26,8 @@
         <%= yield %>
     </div>
     <aside class="sidebar col-sm-3">
-        <h2>I am a fake sidebar</h2>
         <div id="tag_cloud">
+          <h2>Tags</h2>
           <% tag_cloud JobPost.tag_counts, %w{s m l} do |tag, css_class| %>
             <%= link_to tag.name, tag_path(tag.name), class: css_class %>
           <% end %>
