@@ -29,6 +29,11 @@
     </div>
     <% unless admin_area? %>
       <aside class="sidebar col-sm-3">
+          <div class="well post-a-job">
+            <h4><strong>$30</strong> for <strong>30</strong> days</h3>
+            <p>All proceeds support Ladies Learning Code.</p>
+            <a href="/job_posts/new" class="btn btn-primary btn-lg" role="button">Post a Job</a>
+          </div>
           <div id="tag_cloud">
             <h2>Tags</h2>
             <% tag_cloud JobPost.tag_counts, %w{s m l} do |tag, css_class| %>
