@@ -1,4 +1,4 @@
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs nav-justified">
   <li><a href="/">All Jobs</a></li>
   <% @categories.each do |category| %>
     <li><%= link_to category.name, url_for(params.merge(:category => category.id)) %></li>

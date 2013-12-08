@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LlcJobboard</title>
+  <title>Ladies Learning Code Jobs</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -34,8 +34,11 @@
             <p>All proceeds support Ladies Learning Code.</p>
             <a href="/job_posts/new" class="btn btn-primary btn-lg" role="button">Post a Job</a>
           </div>
+          <small>
+            Ladies Learning Code Jobs is a place for you to find the talent you need or the job you want, while supporting a not-for-profit organization.
+          </small>
           <div id="tag_cloud">
-            <h2>Tags</h2>
+            <h3>Tags</h3>
             <% tag_cloud JobPost.tag_counts, %w{s m l} do |tag, css_class| %>
               <%= link_to tag.name, tag_path(tag.name), class: css_class %>
             <% end %>
