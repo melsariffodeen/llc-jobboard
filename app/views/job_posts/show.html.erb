@@ -19,7 +19,7 @@
   <p>Tags: <%= raw @job_post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 <% end %>
 
-<%= simple_form_for(@job_application, :html => { :class => 'form-horizontal' }) do |f| %>
+<%= simple_form_for(@job_application) do |f| %>
 
 <div class="well">
 <h2>Apply for this position</h2>
