@@ -24,7 +24,7 @@
                     <li><%= link_to('Register', new_user_registration_path) %></li>
                 <% end %>
                 <% if employer_signed_in? %>
-                    <li>Welcome <%= current_employer.email %> <%= link_to('Logout?', destroy_user_session_path, :method => :delete) %></li>
+                    <li>Welcome <%= current_employer.email %> <%= link_to('Logout?', destroy_employer_session_path, :method => :delete) %></li>
                 <% end %>
             </ul>
         </div>
