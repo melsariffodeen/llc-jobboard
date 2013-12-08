@@ -16,7 +16,10 @@
 <div class="container">
     <div class="<%= content_col_class %>">
         <% if admin_area? %>
-        <p><%= link_to 'Dashboard', :admin_dashboard %> | <%= link_to 'Job Posts', :admin_job_posts %></p>
+          <ul class="nav nav-tabs admin-nav">
+            <li><%= link_to 'Dashboard', :admin_dashboard %></li>
+            <li><%= link_to 'Job Posts', :admin_job_posts %></li>
+          </ul>
         <% end %>
 
         <%= yield %>

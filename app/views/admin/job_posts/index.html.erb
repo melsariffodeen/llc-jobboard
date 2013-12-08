@@ -1,9 +1,10 @@
 <% @job_posts.each do |job_post| %>
-  <p>
+  <ul class="list-group">
+    <li class="list-group-item">
     <% if job_post.rejected? %>
-      <strike><%= job_post.title %></strike>
+      <h2 class="list-group-item-heading"><strike><%= job_post.title %></strike></h2>
     <% else %>
-      <%= job_post.title %>
+      <h2 class="list-group-item-heading"><%= job_post.title %></h2>
     <% end %>
 
     <% if job_post.not_approved? %>
@@ -16,6 +17,7 @@
     <% elsif job_post.rejected? %>
       <%= link_to('Approve', {action: :approve, id: job_post.id}, method: :put, class: "btn btn-primary") %>
     <% end %>
-  </p>
+    </li>
+  </ul>
 
 <% end %>

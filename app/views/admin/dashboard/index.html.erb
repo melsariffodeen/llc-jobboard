@@ -1,2 +1,2 @@
 <p>Welcome <%= current_admin.email %> <%= link_to('Logout?', destroy_admin_session_path, :method => :delete) %></p>
-<%= link_to 'Create new Admin', action: 'new_admin' %>
+<%= link_to 'Create new Admin', { action: 'new_admin' }, :class => 'btn btn-primary' %>
