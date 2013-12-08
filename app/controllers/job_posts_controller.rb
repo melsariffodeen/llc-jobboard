@@ -1,5 +1,5 @@
 class JobPostsController < ApplicationController
-  # before_action :authenticate_employer!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_employer!, except: [:index, :show]
 
   def index
     @job_posts = JobPost.all
