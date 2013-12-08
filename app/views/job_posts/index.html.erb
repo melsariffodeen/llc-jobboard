@@ -1,12 +1,17 @@
-<% @categories.each do |category| %>
-  <%= link_to category.name, url_for(params.merge(:category => category.id)) %>
-<% end %>
+<ul class="nav nav-tabs">
+  <% @categories.each do |category| %>
+    <li><a href="/">All Jobs</a></li>
+    <li><%= link_to category.name, url_for(params.merge(:category => category.id)) %></li>
+  <% end %>
+</ul>
 
-<% @job_types.each do |job_type| %>
-  <%= link_to job_type.name, url_for(params.merge(:job_type => job_type.id)) %>
-<% end %>
+<ul class="nav nav-pills">
+  <% @job_types.each do |job_type| %>
+    <li><%= link_to job_type.name, url_for(params.merge(:job_type => job_type.id)) %></li>
+  <% end %>
+</ul>
 
-<div class="list-group">
+<div class="list-group job-posts">
     <% @job_posts.each do |job_post| %>
         <%= link_to job_post, :class => 'list-group-item' do %>
             <div class="job-post-heading">
