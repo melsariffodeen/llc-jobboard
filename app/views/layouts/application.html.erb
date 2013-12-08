@@ -13,20 +13,24 @@
 
 <div class="container">
     <header>
-        <div class="row"></div>
         <div class="row">
-            <ul class="nav nav-pills xs-col-12 pull-right">
-                <li><a href="/">Home</a></li>
-                <li><a href="/job_posts/new">Add Job Post</a></li>
-                <% if user_signed_in? %>
+            <img class="logo-llc col-xs-12" src="/assets/LLC-jobsHeader.png" alt="Ladies Learning Code"/>
+        </div>
+        <div class="row">
+            <nav class="col-xs-12">
+                <ul class="nav nav-pills pull-right">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/job_posts/new">Add Job Post</a></li>
+                    <% if user_signed_in? %>
                     <li>Welcome <%= current_user.email %> <%= link_to('Logout?', destroy_user_session_path, :method => :delete) %></li>
-                <% else %>
+                    <% else %>
                     <li><%= link_to('Register', new_user_registration_path) %></li>
-                <% end %>
-                <% if employer_signed_in? %>
+                    <% end %>
+                    <% if employer_signed_in? %>
                     <li>Welcome <%= current_employer.email %> <%= link_to('Logout?', destroy_employer_session_path, :method => :delete) %></li>
-                <% end %>
-            </ul>
+                    <% end %>
+                </ul>
+            </nav>
         </div>
     </header>
 
