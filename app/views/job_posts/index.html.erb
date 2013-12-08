@@ -1,7 +1,7 @@
 <% @categories.each do |category| %>
   <%= link_to category.name, url_for(params.merge(:category => category.id)) %>
 <% end %>
-<br>
+
 <% @job_types.each do |job_type| %>
   <%= link_to job_type.name, url_for(params.merge(:job_type => job_type.id)) %>
 <% end %>
