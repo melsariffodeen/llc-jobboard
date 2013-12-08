@@ -11,4 +11,6 @@ class Location < ActiveRecord::Base
     "#{city} #{country}"
   end
 
+  
+
 end
