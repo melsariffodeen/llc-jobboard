@@ -1,3 +1,9 @@
 <% @job_posts.each do |job_post| %>
-  <p><%= job_post.title %></p> <%= job_post.state %>
+  <p>
+    <%= job_post.title %>
+    <% if job_post.state == 'not_approved' %>
+      <%= link_to('Approve', action: :approve, id: job_post.id) %>
+    <% end %>
+  </p>
+
 <% end %>
