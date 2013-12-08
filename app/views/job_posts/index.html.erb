@@ -1,5 +1,8 @@
 <div class="list-group">
     <% @job_posts.each do |job_post| %>
-      <%= link_to job_post.title, job_post, html_options = { :class => 'list-group-item' } %>
+        <%= link_to job_post, :class => 'list-group-item' do %>
+            <h2 class="list-group-item-heading"><%= job_post.title %></h2>
+            <p class="list-group-item-text">Example of additional info</p>
+        <% end %>
     <% end %>
 </div>
