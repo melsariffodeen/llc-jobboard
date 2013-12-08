@@ -11,41 +11,18 @@
 </head>
 <body>
 
-
-<header>
-    <div class="container">
-        <div class="row">
-            <%= image_tag("LLC-jobsHeader.png", class: "logo-llc col-xs-12", alt: "Ladies Learning Code") %>
-        </div>
-        <div class="row">
-            <nav class="col-xs-12">
-                <ul class="nav nav-pills pull-right">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/job_posts/new">Add Job Post</a></li>
-                    <% if user_signed_in? %>
-                    <li>Welcome <%= current_user.email %> <%= link_to('Logout?', destroy_user_session_path, :method => :delete) %></li>
-                    <% else %>
-                    <li><%= link_to('Register', new_user_registration_path) %></li>
-                    <% end %>
-                    <% if employer_signed_in? %>
-                    <li>Welcome <%= current_employer.email %> <%= link_to('Logout?', destroy_employer_session_path, :method => :delete) %></li>
-                    <% end %>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</header>
+<%= render "layouts/header" %>
 
 <div class="container">
-    <% if admin_area? %>
-      <p><%= link_to 'Dashboard', :admin_dashboard %> | <%= link_to 'Job Posts', :admin_job_posts %></p>
-    <% end %>
-
-    <% if employer_signed_in? %>
-    Employer logged in
-    <% end %>
-
     <div class="<%= content_col_class %>">
+        <% if admin_area? %>
+        <p><%= link_to 'Dashboard', :admin_dashboard %> | <%= link_to 'Job Posts', :admin_job_posts %></p>
+        <% end %>
+
+        <% if employer_signed_in? %>
+        Employer logged in
+        <% end %>
+
         <%= yield %>
     </div>
     <aside class="sidebar col-sm-3">

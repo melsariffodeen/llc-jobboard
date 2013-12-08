@@ -1,0 +1,23 @@
+<header>
+    <div class="container">
+        <div class="row">
+            <a href="/"><%= image_tag("LLC-jobsHeader.png", class: "logo-llc col-xs-12", alt: "Ladies Learning Code") %></a>
+        </div>
+        <div class="row">
+            <nav class="col-xs-12">
+                <ul class="nav nav-pills pull-right">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/job_posts/new">Add Job Post</a></li>
+                    <% if user_signed_in? %>
+                    <li>Welcome <%= current_user.email %> <%= link_to('Logout?', destroy_user_session_path, :method => :delete) %></li>
+                    <% else %>
+                    <li><%= link_to('Register', new_user_registration_path) %></li>
+                    <% end %>
+                    <% if employer_signed_in? %>
+                    <li>Welcome <%= current_employer.email %> <%= link_to('Logout?', destroy_employer_session_path, :method => :delete) %></li>
+                    <% end %>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
