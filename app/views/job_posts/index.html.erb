@@ -1,6 +1,6 @@
 <ul class="nav nav-tabs">
+  <li><a href="/">All Jobs</a></li>
   <% @categories.each do |category| %>
-    <li><a href="/">All Jobs</a></li>
     <li><%= link_to category.name, url_for(params.merge(:category => category.id)) %></li>
   <% end %>
 </ul>
