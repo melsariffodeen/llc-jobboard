@@ -9,6 +9,14 @@ label {
     text-transform: uppercase;
 }
 
+.form-control {
+    &:hover,
+    &:focus {
+        box-shadow: none;
+        border-color: @brand-primary;
+    }
+}
+
 select.date-fragment {
   display: inline-block;
   width: 32%;
