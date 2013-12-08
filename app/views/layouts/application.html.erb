@@ -30,6 +30,10 @@
         </div>
     </header>
 
+    <% if admin_area? %>
+      <p><%= link_to 'Dashboard', :admin_dashboard %> | <%= link_to 'Job Posts', :admin_job_posts %></p>
+    <% end %>
+
     <% if employer_signed_in? %>
     Employer logged in
     <% end %>
