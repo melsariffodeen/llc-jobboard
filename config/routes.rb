@@ -18,7 +18,7 @@ LlcJobboard::Application.routes.draw do
   resources :job_applications, only: [:create]
   get 'style' => 'pages#style_guide'
   
-  get 'tags/:tag', to: 'articles#index', as: :tag
+  get 'tags/:tag', to: 'job_posts#index', as: :tag
 
   # Example resource route with options:
   #   resources :products do

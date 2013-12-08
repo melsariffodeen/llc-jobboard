@@ -2,7 +2,11 @@ class JobPostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @job_posts = JobPost.all
+    if params[:tag]
+      @job_posts = JobPost.tagged_with(params[:tag])
+    else
+      @job_posts = JobPost.all
+    end
   end
 
   def new
