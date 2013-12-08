@@ -11,6 +11,7 @@ class JobPostsController < ApplicationController
 
   def new
     @job_post = JobPost.new
+    @categories = Category.all
   end
    
   def create
