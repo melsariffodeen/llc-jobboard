@@ -1,8 +1,6 @@
-class Admin::DashboardController < ApplicationController
-  before_action :authenticate_admin!
-
+class Admin::DashboardController < Admin::AdminAreaController
   def index
-
+    
   end
 
   def new_admin
