@@ -1,6 +1,10 @@
 
 <%= simple_form_for(@admin, :html => { :class => 'form-horizontal' }, url: 'create') do |f| %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.button :submit %>
+  <%= f.input :email, label_html: { class: 'col-sm-2' }, input_html: { class: 'form-control' } %>
+  <%= f.input :password, label_html: { class: 'col-sm-2' }, input_html: { class: 'form-control' } %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <%= f.button :submit, class: 'btn btn-primary' %>
+    </div>
+</div>
 <% end %>
