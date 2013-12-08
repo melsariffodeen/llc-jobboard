@@ -60,6 +60,7 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    geocoder (1.1.8)
     gmaps4rails (2.1.1)
     hashie (2.0.5)
     hike (1.2.3)
@@ -174,6 +175,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   country_select
   devise
+  geocoder
   gmaps4rails
   jbuilder (~> 1.2)
   jquery-rails

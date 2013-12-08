@@ -18,4 +18,9 @@
 <div class="form-group">
     <%= f.button :submit, class: 'btn btn-primary' %>
 </div>
+
+  <%= f.simple_fields_for :location do |location_form| %>
+    <%= location_form.input :city, input_html: { class: 'form-control' } %>
+    <%= location_form.country_select :country, ['Canada', 'United States'], {}, class: 'form-control date-fragment' %>
+  <% end %>
 <% end %>
