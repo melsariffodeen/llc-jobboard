@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-LlcJobboard::Application.config.secret_key_base = '90f765547ffd90187e7160b632a5e669144525dbda875450e3edd39e3f69872e01f3f57414bd34c91ecd7f47a7bd06d2b8f9efa5441a900a58dbbcb1420e0a16'
+LlcJobboard::Application.config.secret_key_base = ENV['secret_token']
