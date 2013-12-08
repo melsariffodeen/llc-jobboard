@@ -5,7 +5,7 @@ class JobPost < ActiveRecord::Base
   has_many :job_applications
   has_many :tags
 
-  acts_as_taggable
+  # acts_as_taggable
 
   state_machine :initial => :not_approved do
     before_transition :not_approved => :approved, :do => :capture_payment
