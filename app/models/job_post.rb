@@ -19,7 +19,7 @@ class JobPost < ActiveRecord::Base
     end
 
     event :expire do
-      transition all => :archived
+      transition all => :expired
     end
   end
 
