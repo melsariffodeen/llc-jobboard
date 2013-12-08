@@ -11,7 +11,7 @@ class JobPost < ActiveRecord::Base
     before_transition :not_approved => :approved, :do => :capture_payment
 
     event :approve do
-      transition :not_approved => :approved
+      transition [:not_approved, :rejected] => :approved
     end
 
     event :reject do
@@ -20,6 +20,14 @@ class JobPost < ActiveRecord::Base
 
     event :expire do
       transition all => :expired
+    end
+
+    event :hide do
+      transition :approved => :hidden 
+    end
+
+    event :show do
+      transition :hidden => :not_approved 
     end
   end
 

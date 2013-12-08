@@ -58,7 +58,8 @@ LlcJobboard::Application.routes.draw do
 
     resources :job_posts do
       member do
-        get 'approve'
+        put 'approve_or_reject'
+        put 'hide_or_show'
       end
     end
   end

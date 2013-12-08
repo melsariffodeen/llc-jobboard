@@ -1,10 +1,20 @@
 <% @job_posts.each do |job_post| %>
   <p>
-    <%= job_post.title %>
+    <% if job_post.rejected? %>
+      <strike><%= job_post.title %></strike>
+    <% else %>
+      <%= job_post.title %>
+    <% end %>
+
     <% if job_post.not_approved? %>
-      <%= link_to('Approve', action: :approve, id: job_post.id) %>
+      <%= link_to('Approve', {action: :approve_or_reject, id: job_post.id}, method: :put, class: "btn btn-primary") %>
+      <%= link_to('Reject', {action: :approve_or_reject, id: job_post.id}, method: :put, class: "btn btn-danger") %>
     <% elsif job_post.approved? %>
-      <%= link_to('Approve', action: :approve, id: job_post.id) %>
+      <%= link_to('Hide', {action: :hide_or_show, id: job_post.id}, method: :put, class: "btn btn-danger") %>
+    <% elsif job_post.hidden? %>
+      <%= link_to('Show', {action: :hide_or_show, id: job_post.id}, method: :put, class: "btn btn-primary") %>
+    <% elsif job_post.rejected? %>
+      <%= link_to('Approve', {action: :approve_or_reject, id: job_post.id}, method: :put, class: "btn btn-primary") %>
     <% end %>
   </p>
 
