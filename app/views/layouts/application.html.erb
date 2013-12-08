@@ -11,8 +11,9 @@
 </head>
 <body>
 
-<div class="container">
-    <header>
+
+<header>
+    <div class="container">
         <div class="row">
             <%= image_tag("LLC-jobsHeader.png", class: "logo-llc col-xs-12", alt: "Ladies Learning Code") %>
         </div>
@@ -32,8 +33,10 @@
                 </ul>
             </nav>
         </div>
-    </header>
+    </div>
+</header>
 
+<div class="container">
     <% if admin_area? %>
       <p><%= link_to 'Dashboard', :admin_dashboard %> | <%= link_to 'Job Posts', :admin_job_posts %></p>
     <% end %>
