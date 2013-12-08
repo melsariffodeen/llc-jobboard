@@ -2,16 +2,24 @@ class JobPostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    @categories = Category.all
+    @job_types = JobType.all
+
     if params[:tag]
       @job_posts = JobPost.tagged_with(params[:tag])
+    elsif params[:category] || params[:job_type]
+      @job_posts = JobPost.active
+      @job_posts = @job_posts.by_category(params[:category]) if params[:category].present?
+      @job_posts = @job_posts.by_job_type(params[:job_type]) if params[:job_type].present?
     else
-      @job_posts = JobPost.all
+      @job_posts = JobPost.active
     end
   end
 
   def new
     @job_post = JobPost.new
     @categories = Category.all
+    @job_types = JobType.all
   end
    
   def create
@@ -31,6 +39,6 @@ class JobPostsController < ApplicationController
 
   private
   def job_post_params
-    params.require(:job_post).permit(:title, :description, :due_date, :tag_list, :category_id)
+    params.require(:job_post).permit(:title, :description, :due_date, :tag_list, :category_id, :job_type_id)
   end
 end
