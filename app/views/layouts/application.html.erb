@@ -45,7 +45,12 @@
     Employer logged in
     <% end %>
 
-    <%= yield %>
+    <div class="<%= content_col_class %>">
+        <%= yield %>
+    </div>
+    <aside class="sidebar col-sm-3">
+        <h2>I am a fake sidebar</h2>
+    </aside>
 
 </div>
 
