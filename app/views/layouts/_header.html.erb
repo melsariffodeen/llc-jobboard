@@ -1,17 +1,15 @@
 <header>
     <div class="container">
         <div class="row">
-            <a href="/"><%= image_tag("LLC-jobsHeader.png", class: "logo-llc col-xs-12", alt: "Ladies Learning Code") %></a>
-        </div>
-        <div class="row">
-            <nav class="col-xs-12">
-                <ul class="nav nav-pills pull-right">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/job_posts/new">Add Job Post</a></li>
+            <a class="col-md-6" href="/"><%= image_tag("llc-jobs-logo.png", class: "logo-llc img-responsive", alt: "Ladies Learning Code") %></a>
+            <nav class="col-md-6">
+                <ul class="nav nav-pills">
+                    <li><a href="/">All Jobs</a></li>
+                    <li><a href="/job_posts/new">Post a Job</a></li>
                     <% if user_signed_in? %>
-                    <li>Welcome <%= current_user.email %> <%= link_to('Logout?', destroy_user_session_path, :method => :delete) %></li>
+                    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
                     <% else %>
-                    <li><%= link_to('Register', new_user_registration_path) %></li>
+                    <li><%= link_to('Sign in', new_user_session_path) %></li>
                     <% end %>
                 </ul>
             </nav>

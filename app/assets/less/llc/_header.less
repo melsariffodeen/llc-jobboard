@@ -1,8 +1,37 @@
 header {
-  padding: 20px 20px 10px;
+  padding: 20px;
   margin-bottom: 20px;
-  background: #000;
+  background: @llc-black;
+  text-align: center;
+
+  .nav {
+    margin: 0 auto;
+    text-align: center;
+
+    li {
+      display: inline-block;
+      float: none;
+    }
+
+    a {
+      .llc-type();
+      color: @gray-light;
+      transition: all 0.25s ease;
+      background: none;
+
+      &:hover,
+      &:focus {
+        color: #fff;
+        background: none;
+      }
+    }
+
+    @media (min-width: @screen-md) {
+      margin-top: 10px;
+      text-align: right
+    }
+  }
 }
 .logo-llc {
-  margin-bottom: 10px;
+  margin: 0 auto;
 }
