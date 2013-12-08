@@ -8,7 +8,22 @@ class JobPost < ActiveRecord::Base
   acts_as_taggable
 
   state_machine :initial => :not_approved do
-    # before_transition :parked => any - :parked, :do => :put_on_seatbelt
+    before_transition :not_approved => :approved, :do => :capture_payment
+
+    event :approve do
+      transition :not_approved => :approved
+    end
+
+    event :reject do
+      transition all => :rejected
+    end
+
+    event :expire do
+      transition all => :archived
+    end
   end
 
+  def capture_payment
+    
+  end
 end
