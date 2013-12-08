@@ -1,6 +1,7 @@
 class JobPost < ActiveRecord::Base
   belongs_to :location
   belongs_to :category
+  belongs_to :job_type
 
   has_many :job_applications
 

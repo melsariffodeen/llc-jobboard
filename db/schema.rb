@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208014356) do
+ActiveRecord::Schema.define(version: 20131208174028) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -62,10 +62,18 @@ ActiveRecord::Schema.define(version: 20131208014356) do
     t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "job_type_id"
   end
 
   add_index "job_posts", ["category_id"], name: "index_job_posts_on_category_id"
+  add_index "job_posts", ["job_type_id"], name: "index_job_posts_on_job_type_id"
   add_index "job_posts", ["location_id"], name: "index_job_posts_on_location_id"
+
+  create_table "job_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "locations", force: true do |t|
     t.string   "address"

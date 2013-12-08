@@ -1,0 +1,14 @@
+<%= simple_form_for(@job_type, :html => { :class => 'form-horizontal' }, url: admin_job_types_path, method: :post ) do |f| %>
+<%= f.input :name, label_html: { class: 'col-sm-2' }, input_html: { class: 'form-control' } %>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <%= f.button :submit, class: 'btn btn-primary' %>
+    </div>
+</div>
+<% end %>
+
+<div class="list-group">
+    <% @job_types.each do |job_type| %>
+      <li><%= job_type.name %> | <%= link_to 'Destroy', admin_job_type_path(job_type), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    <% end %>
+</div>

@@ -59,6 +59,7 @@ LlcJobboard::Application.routes.draw do
     post 'create' => 'dashboard#create_admin'
 
     resources :categories
+    resources :job_types
 
     resources :job_posts do
       member do

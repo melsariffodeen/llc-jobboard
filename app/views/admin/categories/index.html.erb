@@ -9,6 +9,6 @@
 
 <div class="list-group">
     <% @categories.each do |category| %>
-      <li><%= category.name %></li>
+      <li><%= category.name %> | <%= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></li>
     <% end %>
 </div>

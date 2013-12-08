@@ -21,9 +21,10 @@
             <li><%= link_to 'Dashboard', :admin_dashboard %></li>
             <li><%= link_to 'Job Posts', :admin_job_posts %></li>
             <li><%= link_to 'Categories', :admin_categories %></li>
+            <li><%= link_to 'Job Types', :admin_job_types %></li>
           </ul>
         <% end %>
-
+        <%= render 'layouts/messages' %>
         <%= yield %>
     </div>
     <% unless admin_area? %>
