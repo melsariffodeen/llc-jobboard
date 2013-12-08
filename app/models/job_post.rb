@@ -3,7 +3,6 @@ class JobPost < ActiveRecord::Base
   belongs_to :category
 
   has_many :job_applications
-  has_many :tags
 
   acts_as_taggable
 

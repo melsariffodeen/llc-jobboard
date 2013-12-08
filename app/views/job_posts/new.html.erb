@@ -2,6 +2,7 @@
 <%= f.input :title, label_html: { class: 'col-sm-2' }, input_html: { class: 'form-control' } %>
 <%= f.input :description, label_html: { class: 'col-sm-2' }, input_html: { class: 'form-control' } %>
 <%= f.input :due_date, label_html: { class: 'col-sm-2' }, input_html: { class: 'form-control date-fragment' } %>
+<%= f.input :tag_list, label: "Tags (separated by commas)", label_html: { class: 'col-sm-2' }, input_html: { class: 'form-control' } %>
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
         <%= f.button :submit, class: 'btn btn-primary' %>
