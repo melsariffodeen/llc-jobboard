@@ -55,7 +55,12 @@ LlcJobboard::Application.routes.draw do
     get 'dashboard' => 'dashboard#index'
     get 'new' => 'dashboard#new_admin'
     post 'create' => 'dashboard#create_admin'
-    resources :job_posts
+
+    resources :job_posts do
+      member do
+        get 'approve'
+      end
+    end
   end
 
   # Example resource route within a namespace:
