@@ -4,7 +4,7 @@
     <% if job_post.rejected? %>
       <h2 class="list-group-item-heading"><strike><%= job_post.title %></strike></h2>
     <% else %>
-      <h2 class="list-group-item-heading"><%= job_post.title %></h2>
+      <h2 class="list-group-item-heading"><%= link_to job_post.title, job_post %></h2>
     <% end %>
 
     <% if job_post.not_approved? %>
