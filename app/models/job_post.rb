@@ -27,7 +27,7 @@ class JobPost < ActiveRecord::Base
     end
 
     event :show do
-      transition :hidden => :not_approved 
+      transition :hidden => :approved 
     end
   end
 
