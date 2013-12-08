@@ -1,15 +1,19 @@
+<h1><%= @job_post.title %></h1>
 
-<p><%= @job_post.title %></p>
+<div class="post-description"><%= @job_post.description %></div>
 
-<p><%= @job_post.description %></p>
+<%= simple_form_for(@job_application, :html => { :class => 'form-horizontal' }) do |f| %>
 
-<%= simple_form_for @job_application do |f| %>
-
-  <%= f.input :applicant_first_name %>
-  <%= f.input :applicant_last_name %>
-  <%= f.input :applicant_email %>
-  <%= f.input :cover_letter %>
-  <%= f.input :resume %>
-  <%= f.button :submit %>
+<h2>Apply for this position</h2>
+<%= f.input :applicant_first_name, label_html: { class: 'col-sm-2' }, input_html: { class: 'form-control' } %>
+<%= f.input :applicant_last_name, label_html: { class: 'col-sm-2' }, input_html: { class: 'form-control' } %>
+<%= f.input :applicant_email, label_html: { class: 'col-sm-2' }, input_html: { class: 'form-control' } %>
+<%= f.input :cover_letter, label_html: { class: 'col-sm-2' }, input_html: { class: 'form-control' } %>
+<%= f.input :resume, label_html: { class: 'col-sm-2' }, input_html: { class: 'form-control' } %>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <%= f.button :submit, class: 'btn btn-primary' %>
+    </div>
+</div>
 
 <% end %>
