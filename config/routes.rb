@@ -58,6 +58,8 @@ LlcJobboard::Application.routes.draw do
     get 'new' => 'dashboard#new_admin'
     post 'create' => 'dashboard#create_admin'
 
+    resources :categories
+
     resources :job_posts do
       member do
         put 'approve'
