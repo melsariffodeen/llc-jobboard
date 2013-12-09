@@ -2,11 +2,6 @@
 
 http://llc-jobs.herokuapp.com
 
-
-== Linkedin
-API Key: 77swm6ir1qmg77
-Secret key: mjUAtEmsXxtIM81d
-
 == Admin Info
 email: admin@ladieslearningcode.com
 password: 1234
