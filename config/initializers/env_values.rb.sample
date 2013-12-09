@@ -1,0 +1,2 @@
+ENV['secret_token'] = ""
+ENV['devise_secret_token'] = ""
