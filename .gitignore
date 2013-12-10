@@ -21,4 +21,4 @@
 #Generated Files
 stylesheets
 
-/config/initializers/env_values.rb
+/config/initializers/0-env_values.rb
