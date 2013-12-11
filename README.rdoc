@@ -7,6 +7,6 @@ email: admin@ladieslearningcode.com
 password: 1234
 
 == Setup
-* Rename 0-env_values.rb.sample to 0-env_values.rb (under config/initializers)
+* Copy & paste 0-env_values.rb.sample, under config/initializers, then rename the new file to 0-env_values.rb
 * Generate tokens (see http://www.jamesbadger.ca/2012/12/18/generate-new-secret-token/)
 * bundle install && rails db:create && rails db:migrate && rails s
