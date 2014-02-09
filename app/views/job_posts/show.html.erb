@@ -15,10 +15,6 @@
 
 <div class="post-description"><%= BlueCloth.new(@job_post.description).to_html.html_safe %></div>
 
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 200px;'></div>
-</div>
-
 <% if @job_post.tag_list.present? %>
   <p>Tags: <%= raw @job_post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 <% end %>
@@ -41,13 +37,3 @@
 </div>
 
 <% end %>
-
-<script type="text/javascript">
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers(<%=raw @hash.to_json %>);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-  handler.getMap().setZoom(7)
-});
-</script>

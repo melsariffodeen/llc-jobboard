@@ -18,8 +18,7 @@ LlcJobboard::Application.routes.draw do
   resources :job_applications, only: [:create, :show, :index]
 
   get 'style' => 'pages#style_guide'
-  get 'map' => 'pages#map'
-  
+
   get 'tags/:tag', to: 'job_posts#index', as: :tag
 
   # Example resource route with options:
@@ -47,7 +46,7 @@ LlcJobboard::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
