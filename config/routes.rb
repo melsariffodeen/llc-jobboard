@@ -15,7 +15,8 @@ LlcJobboard::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :job_posts
-  resources :job_applications, only: [:create]
+  resources :job_applications, only: [:create, :show, :index]
+
   get 'style' => 'pages#style_guide'
   get 'map' => 'pages#map'
   

@@ -27,6 +27,7 @@
 
 <div class="well">
 <h2>Apply for this position</h2>
+<%= f.input :job_post_id, :as => :hidden, :input_html => { :value => @job_post.id } %>
 <%= f.input :applicant_first_name, input_html: { class: 'form-control' } %>
 <%= f.input :applicant_last_name, input_html: { class: 'form-control' } %>
 <%= f.input :applicant_email, input_html: { class: 'form-control' } %>
