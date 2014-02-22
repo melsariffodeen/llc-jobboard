@@ -1,6 +1,7 @@
 class JobPost < ActiveRecord::Base
   belongs_to :category
   belongs_to :job_type
+  belongs_to :user
 
   has_many :job_applications
 
@@ -14,7 +15,7 @@ class JobPost < ActiveRecord::Base
   scope :active, lambda { where("state = 'approved'") }
 
   state_machine :initial => :not_approved do
-    before_transition :not_approved => :approved, :do => :capture_payment
+    before_transition :not_approved => :approved, :do => :ensure_payment
 
     event :approve do
       transition [:not_approved, :rejected] => :approved
@@ -35,6 +36,10 @@ class JobPost < ActiveRecord::Base
     event :show do
       transition :hidden => :approved 
     end
+  end
+
+  def paid?
+    false
   end
 
   def capture_payment

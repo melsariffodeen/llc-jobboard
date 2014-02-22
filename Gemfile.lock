@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: 637d5899f614a6f4d0fa2147f9b3b8b1c8b39b28
+  specs:
+    stripe (1.10.2)
+      json (~> 1.8.1)
+      mime-types (~> 1.25)
+      rest-client (~> 1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -37,6 +46,9 @@ GEM
       debug_inspector (>= 0.0.1)
     bluecloth (2.2.0)
     builder (3.1.4)
+    byebug (2.6.0)
+      columnize (~> 0.3)
+      debugger-linecache (~> 1.2)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.3)
@@ -49,9 +61,11 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    columnize (0.3.6)
     commonjs (0.2.7)
     country_select (1.2.0)
     debug_inspector (0.0.2)
+    debugger-linecache (1.2.0)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -122,6 +136,8 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     sass (3.2.12)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -172,6 +188,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bluecloth
+  byebug
   coffee-rails (~> 4.0.0)
   country_select
   devise
@@ -190,6 +207,7 @@ DEPENDENCIES
   simple_form
   sqlite3
   state_machine
+  stripe!
   therubyracer
   turbolinks
   uglifier (>= 1.3.0)

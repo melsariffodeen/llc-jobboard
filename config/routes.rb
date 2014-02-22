@@ -14,7 +14,16 @@ LlcJobboard::Application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  resources :job_posts
+  resources :job_posts do
+    collection do
+      get 'user_posts'
+    end
+
+    member do
+      post 'charge'
+    end
+  end
+
   resources :job_applications, only: [:create, :show, :index]
 
   get 'style' => 'pages#style_guide'
