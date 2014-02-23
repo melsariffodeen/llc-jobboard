@@ -7,15 +7,17 @@
       <h2 class="list-group-item-heading"><%= link_to job_post.title, job_post %></h2>
     <% end %>
 
+    <%= "Expired" if job_post.expired? %>
+
     <% if job_post.not_approved? %>
-      <%= link_to('Approve', {action: :approve, id: job_post.id}, method: :put, class: "btn btn-primary") %>
+      <%= link_to('Activate', {action: :activate, id: job_post.id}, method: :put, class: "btn btn-primary") %>
       <%= link_to('Reject', {action: :reject, id: job_post.id}, method: :put, class: "btn btn-danger") %>
-    <% elsif job_post.approved? %>
+    <% elsif job_post.active? %>
       <%= link_to('Hide', {action: :hide_or_show, id: job_post.id}, method: :put, class: "btn btn-danger") %>
     <% elsif job_post.hidden? %>
       <%= link_to('Show', {action: :hide_or_show, id: job_post.id}, method: :put, class: "btn btn-primary") %>
-    <% elsif job_post.rejected? %>
-      <%= link_to('Approve', {action: :approve, id: job_post.id}, method: :put, class: "btn btn-primary") %>
+    <% elsif job_post.rejected? || job_post.expired? %>
+      <%= link_to('Activate', {action: :activate, id: job_post.id}, method: :put, class: "btn btn-primary") %>
     <% end %>
     </li>
   </ul>

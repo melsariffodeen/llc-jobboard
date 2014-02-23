@@ -39,10 +39,6 @@ class JobPost < ActiveRecord::Base
     end
   end
 
-  def paid?
-    false
-  end
-
   def charge(token, email)
     begin
       charge = Stripe::Charge.create(

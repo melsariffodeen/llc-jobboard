@@ -1,5 +1,5 @@
 class Admin::JobPostsController < Admin::AdminAreaController
-  before_action :load_job_post, only: [:approve, :hide_or_show, :reject]
+  before_action :load_job_post, only: [:activate, :hide_or_show, :reject]
 
   def index
     @job_posts = JobPost.all
@@ -10,15 +10,15 @@ class Admin::JobPostsController < Admin::AdminAreaController
     redirect_to :admin_job_posts
   end
 
-  def approve
-    @job_post.approve
+  def activate
+    @job_post.activate
     redirect_to :admin_job_posts
   end
 
   def hide_or_show
     if @job_post.hidden?
       @job_post.show
-    elsif @job_post.approved?
+    elsif @job_post.active?
       @job_post.hide
     end
     redirect_to :admin_job_posts
