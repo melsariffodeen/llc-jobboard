@@ -48,20 +48,8 @@ class JobPostsController < ApplicationController
   end
 
   def charge
-    puts params
-    token = params[:stripeToken]
-    email = params[:stripeEmail]
+    @job_post.charge(params[:stripeToken], params[:stripeEmail])
 
-    begin
-      charge = Stripe::Charge.create(
-        :amount => 3000,
-        :currency => "cad",
-        :card => token,
-        :description => "#{email} paid for #{@job_post.title}"
-      )
-    rescue Stripe::CardError => e
-      redirect_to user_posts_job_posts_path
-    end
     redirect_to user_posts_job_posts_path
   end
 

@@ -10,15 +10,16 @@ class JobPost < ActiveRecord::Base
   has_one :location
   accepts_nested_attributes_for :location
 
+  before_create :job_post_create
+
   scope :by_category, lambda { |category_id| where("category_id = ?", category_id) }
   scope :by_job_type, lambda { |job_type_id| where("job_type_id = ?", job_type_id) }
-  scope :active, lambda { where("state = 'approved'") }
+  scope :active, lambda { where("state = 'active'") }
+  scope :expired, lambda { where("expires_at < ?", Time.now) }
 
   state_machine :initial => :not_approved do
-    before_transition :not_approved => :approved, :do => :ensure_payment
-
-    event :approve do
-      transition [:not_approved, :rejected] => :approved
+    event :activate do
+      transition [:not_approved, :rejected, :expired] => :active
     end
 
     event :reject do
@@ -30,11 +31,11 @@ class JobPost < ActiveRecord::Base
     end
 
     event :hide do
-      transition :approved => :hidden 
+      transition :active => :hidden 
     end
 
     event :show do
-      transition :hidden => :approved 
+      transition :hidden => :active 
     end
   end
 
@@ -42,7 +43,26 @@ class JobPost < ActiveRecord::Base
     false
   end
 
-  def capture_payment
-    
+  def charge(token, email)
+    begin
+      charge = Stripe::Charge.create(
+        :amount => 3000,
+        :currency => "cad",
+        :card => token,
+        :description => "#{email} paid for #{title}"
+      )
+      activate
+    rescue Stripe::CardError => e
+      
+    end
+  end
+
+  def self.hide_expired
+    JobPost.expired.each { |post| post.expire }
+  end
+
+  private
+  def job_post_create
+    expires_at = Time.now + 30.days
   end
 end

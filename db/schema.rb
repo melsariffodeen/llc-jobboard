@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127050443) do
+ActiveRecord::Schema.define(version: 20140223171441) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140127050443) do
     t.datetime "updated_at"
     t.integer  "job_type_id"
     t.integer  "user_id"
+    t.datetime "expires_at"
   end
 
   add_index "job_posts", ["category_id"], name: "index_job_posts_on_category_id"
