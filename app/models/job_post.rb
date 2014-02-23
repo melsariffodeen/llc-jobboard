@@ -10,14 +10,14 @@ class JobPost < ActiveRecord::Base
   has_one :location
   accepts_nested_attributes_for :location
 
-  before_create :job_post_create
-
   scope :by_category, lambda { |category_id| where("category_id = ?", category_id) }
   scope :by_job_type, lambda { |job_type_id| where("job_type_id = ?", job_type_id) }
   scope :active, lambda { where("state = 'active'") }
   scope :expired, lambda { where("expires_at < ?", Time.now) }
 
   state_machine :initial => :not_approved do
+    before_transition [:not_approved, :rejected, :expired] => :active, :do => :set_expiry_date
+
     event :activate do
       transition [:not_approved, :rejected, :expired] => :active
     end
@@ -58,7 +58,7 @@ class JobPost < ActiveRecord::Base
   end
 
   private
-  def job_post_create
-    expires_at = Time.now + 30.days
+  def set_expiry_date
+    update(expires_at: Time.now + 30.days)
   end
 end
