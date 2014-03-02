@@ -10,7 +10,4 @@ class Location < ActiveRecord::Base
   def full_address
     "#{city} #{country}"
   end
-
-  
-
 end
