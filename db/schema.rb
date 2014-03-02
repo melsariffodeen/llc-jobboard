@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223171441) do
+ActiveRecord::Schema.define(version: 20140302000533) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -106,6 +106,15 @@ ActiveRecord::Schema.define(version: 20140223171441) do
   create_table "tags", force: true do |t|
     t.string "name"
   end
+
+  create_table "transactions", force: true do |t|
+    t.integer  "job_post_id"
+    t.text     "stripe_response"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "transactions", ["job_post_id"], name: "index_transactions_on_job_post_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

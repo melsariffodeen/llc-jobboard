@@ -4,6 +4,7 @@ class JobPost < ActiveRecord::Base
   belongs_to :user
 
   has_many :job_applications
+  has_many :transactions
 
   acts_as_taggable
 
@@ -47,6 +48,7 @@ class JobPost < ActiveRecord::Base
         :card => token,
         :description => "#{email} paid for #{title}"
       )
+      transactions.create(stripe_response: charge)
       activate
     rescue Stripe::CardError => e
       
