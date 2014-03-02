@@ -50,7 +50,9 @@ class JobPostsController < ApplicationController
   def charge
     @job_post.charge(params[:stripeToken], params[:stripeEmail])
 
-    redirect_to user_posts_job_posts_path
+    redirect_to user_posts_job_posts_path, :notice => "Thank you for your payment!"
+  rescue => e
+    redirect_to user_posts_job_posts_path, :alert => e.message
   end
 
   private

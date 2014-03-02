@@ -41,17 +41,18 @@ class JobPost < ActiveRecord::Base
   end
 
   def charge(token, email)
-    begin
-      charge = Stripe::Charge.create(
-        :amount => 3000,
-        :currency => "cad",
-        :card => token,
-        :description => "#{email} paid for #{title}"
-      )
+    charge = Stripe::Charge.create(
+      :amount => 3000,
+      :currency => "cad",
+      :card => token,
+      :description => "#{email} paid for #{title}"
+    )
+
+    if charge["paid"] && !charge["failure_code"]
       transactions.create(stripe_response: charge)
       activate
-    rescue Stripe::CardError => e
-      
+    elsif charge["failure_message"]
+      raise StandardError, "Credit card charge failed with this message: #{charge["failure_message"]}"
     end
   end
 
