@@ -9,6 +9,7 @@ group :development do
   gem 'sqlite3'
   gem "better_errors"
   gem "binding_of_caller"
+  gem "therubyracer"
 end
 
 group :production do
@@ -66,7 +67,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem "therubyracer"
 gem "less-rails"
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'

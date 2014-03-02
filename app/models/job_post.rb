@@ -56,6 +56,10 @@ class JobPost < ActiveRecord::Base
     end
   end
 
+  def expires_in
+    (expires_at.to_date - Time.now.to_date).to_i
+  end
+
   def self.hide_expired
     JobPost.expired.each { |post| post.expire }
   end

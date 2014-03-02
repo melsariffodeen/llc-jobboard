@@ -1,13 +1,13 @@
 <% if admin_signed_in? %>
     <% if @job_post.not_approved? %>
-        <%= link_to('Approve', approve_admin_job_post_url(@job_post), method: :put, class: "btn btn-primary") %>
+        <%= link_to('Approve', activate_admin_job_post_url(@job_post), method: :put, class: "btn btn-primary") %>
         <%= link_to('Reject', reject_admin_job_post_url(@job_post), method: :put, class: "btn btn-danger") %>
-    <% elsif @job_post.approved? %>
+    <% elsif @job_post.active? %>
         <%= link_to('Hide', hide_or_show_admin_job_post_url(@job_post), method: :put, class: "btn btn-danger") %>
     <% elsif @job_post.hidden? %>
         <%= link_to('Show', hide_or_show_admin_job_post_url(@job_post), method: :put, class: "btn btn-primary") %>
     <% elsif @job_post.rejected? %>
-        <%= link_to('Approve', approve_admin_job_post_url(@job_post), method: :put, class: "btn btn-primary") %>
+        <%= link_to('Approve', activate_admin_job_post_url(@job_post), method: :put, class: "btn btn-primary") %>
     <% end %>
 <% end %>
 

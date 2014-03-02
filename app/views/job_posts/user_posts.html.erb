@@ -9,7 +9,7 @@
         <% end %>
 
         <% if job_post.active? %>
-          Active for another <span title="<%= job_post.expires_at.strftime("%a, %B %d %Y") %>" ><%= distance_of_time_in_words(job_post.expires_at, Time.now) %></span>
+          Active for another <span title="<%= job_post.expires_at.strftime("%a, %B %d %Y") %>" ><%= pluralize(job_post.expires_in, "day") %> </span>
         <% else %>
             <%= form_tag(charge_job_post_path(job_post)) do %>
               <script
