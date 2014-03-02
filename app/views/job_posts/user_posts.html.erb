@@ -1,0 +1,32 @@
+<div class="list-group job-posts">
+    <% @job_posts.each do |job_post| %>
+      <ul class="list-group">
+        <li class="list-group-item">
+        <% if job_post.rejected? %>
+          <h2 class="list-group-item-heading"><strike><%= job_post.title %></strike></h2>
+        <% else %>
+          <h2 class="list-group-item-heading"><%= link_to job_post.title, job_post %></h2>
+        <% end %>
+
+        <% if job_post.active? %>
+          <span title="<%= job_post.expires_at.strftime("%a, %B %d %Y") %>" ><%= expiry_info(job_post) %></span>
+        <% else %>
+            <%= form_tag(charge_job_post_path(job_post)) do %>
+              <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_557yys5VpADpjbB4RIpcwg62"
+                data-image="/square-image.png"
+                data-name="Ladies Learning Code"
+                data-description="Job Post for 30 days ($30.00)"
+                data-amount="3000"
+                data-label="Display for 30 days"
+                data-currency="CAD"
+                data-email=<%= "#{current_user.email}" %>>
+              </script>
+            </form>
+            <% end %>
+        <% end %>
+        </li>
+      </ul>
+    <% end %>
+</div>
