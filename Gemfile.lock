@@ -102,6 +102,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.2)
+    newrelic_rpm (3.7.2.195)
     oauth (0.4.7)
     orm_adapter (0.5.0)
     paperclip (3.5.2)
@@ -198,6 +199,7 @@ DEPENDENCIES
   jquery-rails
   less-rails
   linkedin
+  newrelic_rpm
   paperclip (~> 3.0)
   pg
   rails (= 4.0.0)
