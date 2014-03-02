@@ -1,5 +1,6 @@
 <%= simple_form_for(@job_post) do |f| %>
 <%= f.input :title, input_html: { class: 'form-control' } %>
+<%= f.input :company, input_html: { class: 'form-control' } %>
 <%= f.input :description, input_html: { class: 'form-control' } %>
 <div class="help-block">
     <p>Feel free to use markdown in the description. Here are the basics. See the <a href="http://daringfireball.net/projects/markdown/syntax">complete syntax.</a></p>
