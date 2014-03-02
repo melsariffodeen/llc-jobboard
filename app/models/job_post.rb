@@ -8,15 +8,12 @@ class JobPost < ActiveRecord::Base
 
   acts_as_taggable
 
-  has_one :location
-  accepts_nested_attributes_for :location
-
   scope :by_category, lambda { |category_id| where("category_id = ?", category_id) }
   scope :by_job_type, lambda { |job_type_id| where("job_type_id = ?", job_type_id) }
   scope :active, lambda { where("state = 'active'") }
   scope :expired, lambda { where("expires_at < ?", Time.now) }
 
-  validates_presence_of :title, :description, :job_type_id, :category_id, :due_date, :user_id
+  validates_presence_of :title, :description, :job_type_id, :category_id, :due_date, :user_id, :city, :country
 
   state_machine :initial => :not_approved do
     before_transition [:not_approved, :rejected, :expired] => :active, :do => :set_expiry_date

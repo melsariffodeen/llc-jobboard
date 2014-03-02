@@ -23,7 +23,6 @@ class JobPostsController < ApplicationController
 
   def new
     @job_post = JobPost.new
-    @job_post.location = Location.new
     @categories = Category.all
     @job_types = JobType.all
   end
@@ -52,7 +51,7 @@ class JobPostsController < ApplicationController
 
   private
   def job_post_params
-    params.require(:job_post).permit(:title, :description, :due_date, :tag_list, :category_id, :job_type_id, :location_attributes => [:city, :country])
+    params.require(:job_post).permit(:title, :description, :due_date, :tag_list, :category_id, :job_type_id, :city, :country)
   end
 
   def set_job_post
