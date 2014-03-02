@@ -40,11 +40,6 @@ class JobPostsController < ApplicationController
 
   def show
     @job_application = @job_post.job_applications.new
-
-    @hash = Gmaps4rails.build_markers(@job_post) do |job_post, marker|
-      marker.lat job_post.location.latitude
-      marker.lng job_post.location.longitude
-    end
   end
 
   def charge
