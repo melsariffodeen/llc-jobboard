@@ -30,7 +30,8 @@
                     name: 'Ladies Learning Code',
                     description: 'Job Post for 30 days ($30.00)',
                     amount: 3000,
-                    currency: 'CAD'
+                    currency: 'CAD',
+                    email: "<%= current_user.email %>"
                   });
                   e.preventDefault();
                 });
