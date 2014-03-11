@@ -20,7 +20,7 @@
 
 <div class="container">
     <% if job_posts? %>
-      <ul class="nav nav-tabs nav-justified">
+      <ul class="job-categories nav nav-tabs nav-justified">
         <li><a href="/">All Jobs</a></li>
         <% @categories.each do |category| %>
           <li><%= link_to category.name, url_for(params.merge(:category => category.id)) %></li>
