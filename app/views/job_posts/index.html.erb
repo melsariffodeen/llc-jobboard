@@ -1,10 +1,3 @@
-<ul class="nav nav-tabs nav-justified">
-  <li><a href="/">All Jobs</a></li>
-  <% @categories.each do |category| %>
-    <li><%= link_to category.name, url_for(params.merge(:category => category.id)) %></li>
-  <% end %>
-</ul>
-
 <ul class="nav nav-pills">
   <% @job_types.each do |job_type| %>
     <li><%= link_to job_type.name, url_for(params.merge(:job_type => job_type.id)) %></li>
