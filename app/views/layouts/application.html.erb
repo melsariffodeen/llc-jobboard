@@ -19,6 +19,14 @@
 <%= render "layouts/header" %>
 
 <div class="container">
+    <% if job_posts? %>
+      <ul class="nav nav-tabs nav-justified">
+        <li><a href="/">All Jobs</a></li>
+        <% @categories.each do |category| %>
+          <li><%= link_to category.name, url_for(params.merge(:category => category.id)) %></li>
+        <% end %>
+      </ul>
+    <% end %>
     <div class="<%= content_col_class %>">
         <% if admin_area? %>
           <ul class="nav nav-tabs admin-nav">
