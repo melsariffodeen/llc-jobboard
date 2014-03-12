@@ -16,7 +16,7 @@ class JobPost < ActiveRecord::Base
   validates_presence_of :title, :description, :job_type_id, :category_id, :due_date, :user_id, :city, :country, :company
 
   state_machine :initial => :not_approved do
-    before_transition [:not_approved, :rejected, :expired] => :active, :do => :set_expiry_date
+    before_transition [:not_approved, :rejected, :expired] => :active, :do => [:set_expiry_date, :set_old_date]
 
     event :activate do
       transition [:not_approved, :rejected, :expired] => :active
@@ -31,11 +31,11 @@ class JobPost < ActiveRecord::Base
     end
 
     event :hide do
-      transition :active => :hidden 
+      transition :active => :hidden
     end
 
     event :show do
-      transition :hidden => :active 
+      transition :hidden => :active
     end
   end
 
@@ -55,6 +55,10 @@ class JobPost < ActiveRecord::Base
     end
   end
 
+  def is_fresh?
+    Time.now.to_date < old_at.to_date
+  end
+
   def expires_in
     (expires_at.to_date - Time.now.to_date).to_i
   end
@@ -64,6 +68,10 @@ class JobPost < ActiveRecord::Base
   end
 
   private
+  def set_old_date
+    update(old_at: Time.now + 3.days)
+  end
+
   def set_expiry_date
     update(expires_at: Time.now + 30.days)
   end
