@@ -27,7 +27,7 @@ class JobPostsController < ApplicationController
     @categories = Category.all
     @job_types = JobType.all
   end
-   
+
   def create
     @job_post = current_user.job_posts.new(job_post_params)
 

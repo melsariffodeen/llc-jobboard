@@ -69,10 +69,10 @@ class JobPost < ActiveRecord::Base
 
   private
   def set_old_date
-    update(old_at: Time.now + 3.days)
+    update(old_at: 3.days.from_now)
   end
 
   def set_expiry_date
-    update(expires_at: Time.now + 30.days)
+    update(expires_at: 30.days.from_now)
   end
 end
