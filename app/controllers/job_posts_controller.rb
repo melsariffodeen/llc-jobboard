@@ -6,6 +6,7 @@ class JobPostsController < ApplicationController
     @categories = Category.all
     @job_types = JobType.all
 
+
     if params[:tag]
       @job_posts = JobPost.tagged_with(params[:tag])
     elsif params[:category] || params[:job_type]
@@ -13,7 +14,7 @@ class JobPostsController < ApplicationController
       @job_posts = @job_posts.by_category(params[:category]) if params[:category].present?
       @job_posts = @job_posts.by_job_type(params[:job_type]) if params[:job_type].present?
     else
-      @job_posts = JobPost.active
+      @job_posts = JobPost.active.paginate(page: params[:page])
     end
   end
 
