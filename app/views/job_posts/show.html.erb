@@ -21,21 +21,6 @@
   <p>Tags: <%= raw @job_post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 <% end %>
 
-<%= simple_form_for(@job_application) do |f| %>
-
 <div class="well">
-<h2>Apply for this position</h2>
-<%= f.input :job_post_id, :as => :hidden, :input_html => { :value => @job_post.id } %>
-<%= f.input :applicant_first_name, input_html: { class: 'form-control' } %>
-<%= f.input :applicant_last_name, input_html: { class: 'form-control' } %>
-<%= f.input :applicant_email, input_html: { class: 'form-control' } %>
-<%= f.input :cover_letter, input_html: { class: 'form-control' } %>
-<%= f.input :resume %>
-<div class="form-group">
-    <div>
-        <%= f.button :submit, 'Submit your application', class: 'btn btn-primary' %>
-    </div>
+    <div class="post-description"><%= BlueCloth.new(@job_post.how_to_apply).to_html.html_safe %></div>
 </div>
-</div>
-
-<% end %>
