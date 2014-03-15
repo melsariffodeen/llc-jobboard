@@ -30,6 +30,8 @@ class JobPostsController < ApplicationController
 
   def create
     @job_post = current_user.job_posts.new(job_post_params)
+    @categories = Category.all
+    @job_types = JobType.all
 
     if @job_post.save
       redirect_to @job_post
