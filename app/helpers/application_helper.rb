@@ -7,6 +7,10 @@ module ApplicationHelper
     current_page?(root_path) || current_page?(controller: 'job_posts', action: 'index')
   end
 
+  def job_show?
+    request.fullpath.split('/')[1] == 'job_posts'
+  end
+
   def content_col_class
     if admin_area?
         'col-sm-12'
