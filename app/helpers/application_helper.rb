@@ -3,7 +3,7 @@ module ApplicationHelper
     request.fullpath.split('/')[1] == 'admin' && admin_signed_in?
   end
 
-  def job_posts?
+  def job_index?
     current_page?(root_path) || current_page?(controller: 'job_posts', action: 'index')
   end
 
