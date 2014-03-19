@@ -48,7 +48,7 @@
           </small>
           <div id="tag_cloud">
             <h3>Tags</h3>
-            <% tag_cloud JobPost.tag_counts, %w{s m l} do |tag, css_class| %>
+            <% tag_cloud JobPost.active.tag_counts, %w{s m l} do |tag, css_class| %>
               <%= link_to tag.name, tag_path(tag.name), class: css_class %>
             <% end %>
           </div>
