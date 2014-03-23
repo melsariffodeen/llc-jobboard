@@ -5,23 +5,20 @@ class JobPostsController < ApplicationController
   def index
     @categories = Category.all
     @job_types = JobType.all
-
+    @job_posts = JobPost.active
 
     if params[:tag]
-      @job_posts = JobPost.tagged_with(params[:tag])
+      @job_posts = @job_posts.tagged_with(params[:tag])
     elsif params[:category] || params[:job_type]
-      @job_posts = JobPost.active
       @job_posts = @job_posts.by_category(params[:category]) if params[:category].present?
       @job_posts = @job_posts.by_job_type(params[:job_type]) if params[:job_type].present?
-    else
-      @job_posts = JobPost.active
     end
 
-    @job_posts = @job_posts.paginate(page: params[:page])
+    @job_posts = @job_posts.order('expires_at DESC').paginate(page: params[:page])
   end
 
   def user_posts
-    @job_posts = current_user.job_posts.reverse
+    @job_posts = current_user.job_posts.paginate(page: params[:page])
   end
 
   def new
