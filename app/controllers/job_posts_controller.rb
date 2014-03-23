@@ -21,7 +21,7 @@ class JobPostsController < ApplicationController
   end
 
   def user_posts
-    @job_posts = current_user.job_posts
+    @job_posts = current_user.job_posts.reverse
   end
 
   def new
@@ -44,19 +44,24 @@ class JobPostsController < ApplicationController
 
   def show
     @job_application = @job_post.job_applications.new
+    raise ActionController::RoutingError.new('Not Found') if !@job_post.active? && @job_post.user.id != current_user.try(:id)
   end
 
   def charge
     @job_post.charge(params[:stripeToken], params[:stripeEmail])
 
-    redirect_to user_posts_job_posts_path, :notice => "Thank you for your payment!"
+    redirect_to @job_post, :notice => "Thank you for your payment!"
   rescue => e
-    redirect_to user_posts_job_posts_path, :alert => e.message
+    redirect_to @job_post, :alert => e.message
   end
 
   private
   def job_post_params
     params.require(:job_post).permit(:title, :description, :company, :due_date, :tag_list, :category_id, :job_type_id, :city, :country)
+  end
+
+  def token_params
+    params.require(:token).permit(:id, :name)
   end
 
   def set_job_post

@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def job_posts?
-    current_page?(root_path) || current_page?(controller: 'job_posts', action: 'index')
+    current_page?(root_path) || current_page?(controller: '/job_posts', action: 'index')
   end
 
   def content_col_class
