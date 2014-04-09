@@ -15,7 +15,7 @@ class JobPost < ActiveRecord::Base
   scope :active, lambda { where("state = 'active'") }
   scope :expired, lambda { where("expires_at < ?", Time.now) }
 
-  validates_presence_of :title, :description, :job_type_id, :category_id, :due_date, :user_id, :city, :country, :company
+  validates_presence_of :title, :description, :job_type_id, :category_id, :due_date, :user_id, :city, :country, :company, :how_to_apply
 
   state_machine :initial => :not_approved do
     before_transition [:not_approved, :rejected, :expired] => :active, :do => [:set_expiry_date, :set_old_date]
