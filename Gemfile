@@ -61,6 +61,7 @@ gem 'linkedin'
 gem 'bluecloth'
 
 gem 'geocoder'
+gem 'rails_autolink'
 
 # Pagination of pages
 gem "will_paginate", "~> 3.0.5"
