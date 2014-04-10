@@ -33,7 +33,7 @@ class JobPostsController < ApplicationController
     @job_types = JobType.all
 
     if @job_post.save
-      redirect_to @job_post
+      redirect_to @job_post, :alert => "Your post is not published yet. Click Publish to continue."
     else
       render 'new'
     end
