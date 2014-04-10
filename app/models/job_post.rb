@@ -8,7 +8,7 @@ class JobPost < ActiveRecord::Base
 
   acts_as_taggable
 
-  default_scope order('created_at DESC')
+  default_scope { order(created_at: :desc) }
 
   scope :by_category, lambda { |category_id| where("category_id = ?", category_id) }
   scope :by_job_type, lambda { |job_type_id| where("job_type_id = ?", job_type_id) }
