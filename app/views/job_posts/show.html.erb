@@ -24,7 +24,7 @@
 <script type="text/javascript">
   $(function() {
     var handler = StripeCheckout.configure({
-      key: 'pk_test_557yys5VpADpjbB4RIpcwg62',
+      key: '<%= ENV["stripe_public_token"] %>',
       // image: '/square-image.png',
       token: function(token, args) {
         document.getElementById("stripeToken").value = token.id;

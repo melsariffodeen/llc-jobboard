@@ -1,4 +1,4 @@
 ENV['secret_token'] = ""
-ENV['secret_token'] = ""
 ENV['devise_secret_token'] = ""
+ENV['stripe_public_token'] = ""
 ENV['stripe_secret_token'] = ""
