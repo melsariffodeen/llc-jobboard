@@ -15,6 +15,7 @@
       <%= link_to('Activate', {action: :activate, id: job_post.id}, method: :put, class: "btn btn-primary") %>
       <%= link_to('Reject', {action: :reject, id: job_post.id}, method: :put, class: "btn btn-danger") %>
     <% elsif job_post.active? %>
+      <p><span title="<%= job_post.expires_at.strftime("%a, %B %d %Y") %>" ><%= expiry_info(job_post) %></span></p>
       <%= link_to('Hide', {action: :hide_or_show, id: job_post.id}, method: :put, class: "btn btn-danger") %>
     <% elsif job_post.hidden? %>
       <%= link_to('Show', {action: :hide_or_show, id: job_post.id}, method: :put, class: "btn btn-primary") %>
