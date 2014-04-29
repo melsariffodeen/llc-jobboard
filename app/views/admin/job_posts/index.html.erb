@@ -9,7 +9,7 @@
       <h2 class="list-group-item-heading"><%= link_to job_post.title, job_post %></h2>
     <% end %>
 
-    <%= "Expired" if job_post.expired? %>
+    <p><%= "Expired" if job_post.expired? %></p>
 
     <% if job_post.not_approved? %>
       <%= link_to('Activate', {action: :activate, id: job_post.id}, method: :put, class: "btn btn-primary") %>
