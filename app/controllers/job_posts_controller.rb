@@ -41,7 +41,7 @@ class JobPostsController < ApplicationController
 
   def show
     @job_application = @job_post.job_applications.new
-    raise ActionController::RoutingError.new('Not Found') if !@job_post.active? && @job_post.user.id != current_user.try(:id)
+    raise ActionController::RoutingError.new('Not Found') if !@job_post.active? && @job_post.user_id != current_user.try(:id)
   end
 
   def charge

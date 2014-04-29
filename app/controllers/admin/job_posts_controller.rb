@@ -24,8 +24,31 @@ class Admin::JobPostsController < Admin::AdminAreaController
     redirect_to :admin_job_posts
   end
 
+  def new
+    @job_post = JobPost.new
+    @categories = Category.all
+    @job_types = JobType.all
+  end
+
+  def create
+    @job_post = current_admin.job_posts.new(job_post_params)
+    @categories = Category.all
+    @job_types = JobType.all
+
+    if @job_post.save
+      @job_post.activate
+      redirect_to @job_post
+    else
+      render 'new'
+    end
+  end
+
   private
   def load_job_post
     @job_post = JobPost.find(params[:id])
+  end
+
+  def job_post_params
+    params.require(:job_post).permit(:title, :description, :how_to_apply, :company, :due_date, :tag_list, :category_id, :job_type_id, :city, :country)
   end
 end
