@@ -24,4 +24,7 @@
 #Generated Files
 stylesheets
 
+#Gemset
+.ruby-gemset
+
 /config/initializers/0-env_values.rb
