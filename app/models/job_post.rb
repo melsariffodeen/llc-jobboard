@@ -53,6 +53,7 @@ class JobPost < ActiveRecord::Base
     if charge["paid"] && !charge["failure_code"]
       transactions.create(stripe_response: charge)
       activate
+      UserMailer.confirmation_email(email, self).deliver
     elsif charge["failure_message"]
       raise StandardError, "Credit card charge failed with this message: #{charge["failure_message"]}"
     end
